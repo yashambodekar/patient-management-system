@@ -3,23 +3,23 @@ class PriorityQueue {
     this.queue = [];
   }
 
-  // Helper function to swap elements
+ 
   swap(i, j) {
     [this.queue[i], this.queue[j]] = [this.queue[j], this.queue[i]];
   }
 
-  // Insert a patient into the priority queue
+
   enqueue(patient) {
     this.queue.push(patient);
     this.heapifyUp();
   }
 
-  // Remove and return the patient with the highest severity
+ 
   dequeue() {
     if (this.queue.length === 0) return null;
     if (this.queue.length === 1) return this.queue.pop();
 
-    // Swap first and last, then remove last (highest priority)
+  
     this.swap(0, this.queue.length - 1);
     const highestPriorityPatient = this.queue.pop();
     this.heapifyDown();
@@ -27,12 +27,11 @@ class PriorityQueue {
     return highestPriorityPatient;
   }
 
-  // Get the patient with the highest priority (without removing)
   peek() {
     return this.queue.length > 0 ? this.queue[0] : null;
   }
 
-  // Heapify Up (Bubble Up)
+
   heapifyUp() {
     let index = this.queue.length - 1;
     while (index > 0) {
@@ -43,7 +42,7 @@ class PriorityQueue {
     }
   }
 
-  // Heapify Down (Bubble Down)
+
   heapifyDown() {
     let index = 0;
     const length = this.queue.length;
@@ -66,7 +65,7 @@ class PriorityQueue {
     }
   }
 
-  // Check if the queue is empty
+
   isEmpty() {
     return this.queue.length === 0;
   }
